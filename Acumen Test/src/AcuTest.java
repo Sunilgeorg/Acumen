@@ -68,11 +68,12 @@ public class AcuTest {
 			}
 			
 			//Test Data
-			String inputString1 = "Sunil@test.com";
-			String inputString2 = "Some Description";
+			String[] inputString = new String[5];
+			inputString[0]= "Sunil@test.com";
+			inputString[1] = "Some Description";
 			
-
-			FieldVal(inputString1,inputString2);
+           
+			FieldVal(inputString[0],inputString[1]);
 			
 	}
 
@@ -81,11 +82,13 @@ public class AcuTest {
            String fieldString3;
            fieldString3 = fieldString1;
            //Adding email and Message
-          
+         
 			driver.findElement(By.xpath("//form[@class='wpcf7-form']/p[5]/span/input")).sendKeys(fieldString3);
 			fieldString3 = fieldString2;
 			driver.findElement(By.xpath("//form[@class='wpcf7-form']/p[7]/span/textarea")).sendKeys(fieldString3);
-
+			/* WebElement slist = driver.findElement(By.xpath("//form[@class='wpcf7-form']/p"));
+	          List<WebElement> slist2 = slist.findElements(By.tagName("p"));
+	          System.out.println(slist2.size());*/
 			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 			
 			//Clicking Send
@@ -113,7 +116,7 @@ public class AcuTest {
 
 				
 
-
+ 
 
 					if(validationMessage.contains("Please fill the required field"))
 
@@ -162,7 +165,7 @@ public class AcuTest {
 
 			
 
-			driver.quit();
+			//driver.quit();
 
 }}
 
